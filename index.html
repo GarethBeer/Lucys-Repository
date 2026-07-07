@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucy Royle, Marketing Manager</title>
+<meta name="description" content="Award-winning Marketing Manager with 10+ years' experience across health & fitness, weddings and gourmet food.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+  // Apply saved theme before paint to avoid a flash
+  (function(){try{var t=localStorage.getItem('lr-theme');if(t){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();
+</script>
+<style>
+  /* ---- LIGHT (default): periwinkle base, plum accent ---- */
+  :root{
+    --bg:#eef1fb; --ink:#3d0a1f; --muted:#7c5d68; --line:#d7ddf3;
+    --accent:#4F0C28; --card:#ffffff;
+    --header-bg:rgba(238,241,251,.82);
+    --glow:rgba(151,170,232,.45);
+    --btn-text:#ffffff;
+    --ghost-border:#c4b4bb;
+    --marquee-strong:var(--accent);
+    --ph-bg:radial-gradient(circle at 30% 30%,rgba(79,12,40,.12),transparent 55%),linear-gradient(135deg,#dfe4f6,#c8d2f1);
+    --ph-text:#8b93b8;
+    --chip-bg:#eef1fb;
+    --card-shadow:0 4px 6px -1px rgba(50,30,70,.06),0 24px 48px -12px rgba(50,30,70,.18);
+    --hover-border:#b9a7af;
+  }
+  /* ---- DARK: plum base, periwinkle accent ---- */
+  [data-theme="dark"]{
+    --bg:#4F0C28; --ink:#f6eef2; --muted:#cba9b8; --line:#6e2944;
+    --accent:#c5d2f8; --card:#5d1633;
+    --header-bg:rgba(79,12,40,.82);
+    --glow:rgba(197,210,248,.18);
+    --btn-text:#4F0C28;
+    --ghost-border:#6e2944;
+    --marquee-strong:var(--ink);
+    --ph-bg:radial-gradient(circle at 30% 30%,rgba(197,210,248,.12),transparent 55%),linear-gradient(135deg,#641736,#440a22);
+    --ph-text:#a07489;
+    --chip-bg:#4F0C28;
+    --card-shadow:none;
+    --hover-border:#854260;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"Inter",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background-color .3s ease,color .3s ease}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+
+  header{position:sticky;top:0;z-index:10;background:var(--header-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:background-color .3s ease,border-color .3s ease}
+  nav{display:flex;justify-content:space-between;align-items:center;height:78px}
+  .logo{font-family:"Space Grotesk";font-weight:700;font-size:21px;letter-spacing:-.02em}
+  .logo span{color:var(--accent)}
+  .nav-right{display:flex;align-items:center;gap:26px}
+  .navlinks{display:flex;gap:30px}
+  .navlinks a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500}
+  .navlinks a:hover{color:var(--accent)}
+
+  .theme-toggle{font-family:"Inter";font-size:13px;font-weight:600;color:var(--ink);background:var(--card);border:1px solid var(--line);padding:8px 14px;border-radius:100px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.2s}
+  .theme-toggle:hover{border-color:var(--accent)}
+
+  .hero{padding:120px 0 90px;position:relative;overflow:hidden;background:#c8d2f1}
+  .glow{position:absolute;top:-200px;right:-120px;width:560px;height:560px;background:radial-gradient(circle,var(--glow),transparent 65%);pointer-events:none}
+  .hero-inner{display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center}
+  .hero-image-wrap{position:relative;flex-shrink:0}
+  .hero-photo{width:100%;aspect-ratio:4/5;border-radius:28px;background:var(--ph-bg);display:block;object-fit:cover;filter:contrast(1.08) brightness(1.05) saturate(1.2)}
+  .hero-badge{position:absolute;bottom:-18px;right:-18px;width:130px;height:130px;border-radius:50%;background:var(--accent);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:"Space Grotesk";font-weight:700;font-size:13px;line-height:1.25;padding:12px;box-shadow:0 8px 24px rgba(79,12,40,.3);border:4px solid #c8d2f1}
+  .hero-badge span{font-size:26px;font-weight:700;display:block;line-height:1}
+  .hero-location{position:absolute;top:16px;left:28px;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+  .hero h1{font-family:"Space Grotesk";font-size:clamp(50px,9vw,118px);font-weight:700;line-height:.95;letter-spacing:-.035em;margin-bottom:30px}
+  .hero h1 span{color:var(--accent)}
+  .hero p{font-size:21px;color:var(--muted);max-width:620px;margin-bottom:40px}
+  .about-bio{max-width:640px;margin-bottom:40px;}
+  .about-bio p{font-size:17px;color:var(--muted);line-height:1.75;margin-bottom:16px;}
+  .about-bio .about-close{font-size:15px;color:var(--muted);opacity:.75;margin-bottom:0;}
+  .trophy-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:9px 18px;border-radius:100px;font-size:13px;font-weight:600;margin-top:4px;letter-spacing:.01em;}
+  .trophy-badge .ti{font-size:16px;}
+  [data-theme="dark"] .trophy-badge{background:rgba(197,210,248,.15);color:var(--accent);}
+  .btn{display:inline-block;background:var(--accent);color:var(--btn-text);padding:17px 34px;border-radius:100px;text-decoration:none;font-weight:600;font-size:15px;transition:.2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ghost-border)}
+  .hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:0}
+
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;overflow:hidden;white-space:nowrap;transition:border-color .3s ease}
+  .marquee-track{display:inline-flex;animation:marquee 28s linear infinite}
+  .marquee-track:hover{animation-play-state:paused}
+  .marquee span{font-family:"Space Grotesk";font-size:18px;color:var(--muted);margin:0 28px;font-weight:500}
+  .marquee b{color:var(--marquee-strong)}
+  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  .section{padding:100px 0;position:relative;overflow:hidden}
+  .section::before,.section::after{content:'';position:absolute;border-radius:50%;pointer-events:none;width:600px;height:600px;background:radial-gradient(circle,var(--glow),transparent 65%);z-index:0}
+  .section .wrap{position:relative;z-index:1}
+  .impact::before{top:-200px;left:-160px}
+  .impact::after{bottom:-200px;right:-160px}
+  .section#work::before{top:-200px;right:-160px;left:auto}
+  .section#work::after{bottom:-200px;left:-160px;right:auto}
+  .section#reviews::before{top:-200px;left:-160px}
+  .section#reviews::after{bottom:-200px;right:-160px}
+  .impact .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .stat{background:var(--accent);border:1px solid var(--accent);border-radius:18px;padding:34px 30px;transition:.25s}
+  .stat:hover{opacity:.9}
+  .stat .lbl{color:#F5F5F5;font-weight:500;}
+  [data-theme="dark"] .stat{background:#3d0820;border-color:#3d0820;}
+  .stat .num{font-family:"Space Grotesk";font-size:64px;font-weight:700;letter-spacing:-.03em;line-height:1;color:#fff}
+  .stat .lbl{color:var(--muted);font-size:15px;margin-top:12px}
+
+  .sec-head{margin-bottom:48px}
+  .sec-head .kicker{color:var(--accent);font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+  .sec-head h2{font-family:"Space Grotesk";font-size:clamp(34px,5vw,56px);font-weight:700;letter-spacing:-.02em}
+
+  .cases{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--card-shadow);transition:.25s}
+  .card:hover{transform:translateY(-4px);border-color:var(--hover-border)}
+  .ph{aspect-ratio:16/10;background:var(--ph-bg);display:flex;align-items:center;justify-content:center;color:var(--ph-text);font-size:13px;letter-spacing:.1em;text-transform:uppercase;transition:.3s}
+  .card .body{padding:30px}
+  .card .tag{color:var(--accent);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+  .card h3{font-family:"Space Grotesk";font-size:25px;font-weight:600;margin-bottom:12px}
+  .card p{color:var(--muted);margin-bottom:18px;font-size:15px}
+  .role{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .role li{font-size:12px;background:var(--chip-bg);border:1px solid var(--line);padding:5px 11px;border-radius:100px}
+
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+  .quote{background:var(--accent);border:1px solid var(--accent);border-radius:18px;padding:30px;transition:.25s}
+  .quote .mark{color:rgba(255,255,255,.35);font-family:"Space Grotesk";font-size:46px;line-height:.6;font-weight:700}
+  .quote p{font-size:16px;margin:14px 0 0;color:#fff;}
+  .quote .quote-full{display:block;font-size:16px;color:#fff;line-height:1.7;max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .quote.expanded .quote-full{max-height:600px;}
+  .quote-toggle{display:inline-block;margin-top:14px;margin-bottom:18px;font-size:12.5px;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.55);background:none;border:none;cursor:pointer;padding:0;font-family:"Inter",sans-serif;transition:.15s;}
+  .quote-toggle:hover{color:#fff;}
+  .quote .who{font-weight:600;font-size:14px;color:#fff;}
+  .quote .role2{color:rgba(255,255,255,.55);font-size:13px}
+  [data-theme="dark"] .quote{background:#3d0820;border-color:#3d0820;}
+
+  .contact{text-align:center;background:#4F0C28}
+  .contact::before,.contact::after{display:none}
+  .contact h2{font-family:"Space Grotesk";font-size:clamp(40px,7vw,86px);font-weight:700;letter-spacing:-.03em;margin-bottom:28px;color:#c5d2f8}
+  .contact h2 span{color:#ffffff}
+  .contact .btn{background:#c5d2f8;color:#4F0C28}
+  .contact-links{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-top:40px}
+  .contact-link{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#fff;font-size:16px;font-weight:700;transition:.2s}
+  .contact-link:hover{opacity:.8}
+  .contact-icon{width:44px;height:44px;border-radius:50%;background:#c5d2f8;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;color:#4F0C28}
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:13px;transition:border-color .3s ease}
+
+  /* Case study modal */
+  #cs-overlay{display:none;position:fixed;inset:0;z-index:300;background:rgba(10,3,7,.85);overflow-y:auto;padding:48px 20px 60px;}
+  #cs-overlay.open{display:block;}
+  #cs-panel{background:var(--card);border-radius:24px;max-width:860px;margin:0 auto;overflow:hidden;position:relative;}
+  #cs-close{position:fixed;top:20px;right:24px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:24px;cursor:pointer;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:301;transition:.15s;line-height:1;}
+  #cs-close:hover{background:rgba(255,255,255,.22);}
+  .cs-hero{aspect-ratio:16/7;background:var(--ph-bg);display:flex;align-items:center;justify-content:center;color:var(--ph-text);font-size:13px;letter-spacing:.1em;text-transform:uppercase;}
+  .cs-hero img{width:100%;height:100%;object-fit:cover;}
+  .cs-body{padding:40px 48px 48px;}
+  .cs-tag{color:var(--accent);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:12px;}
+  .cs-title{font-family:"Space Grotesk";font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.02em;margin-bottom:16px;}
+  .cs-intro{font-size:17px;color:var(--muted);line-height:1.75;padding-bottom:32px;border-bottom:1px solid var(--line);margin-bottom:32px;}
+  .cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px 40px;margin-bottom:32px;}
+  .cs-section h4{font-family:"Space Grotesk";font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:10px;}
+  .cs-section p{color:var(--ink);line-height:1.75;font-size:15px;}
+  .cs-section.full{grid-column:1/-1;}
+  .cs-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:32px;padding-top:32px;border-top:1px solid var(--line);}
+  .cs-gallery .ph{aspect-ratio:16/9;border-radius:10px;}
+  .cs-gallery img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;cursor:zoom-in;transition:.2s;}
+  .cs-gallery img:hover{opacity:.85;}
+  #lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:1000;align-items:center;justify-content:center;cursor:zoom-out;}
+  #lightbox.open{display:flex;}
+  #lightbox img{max-width:92vw;max-height:92vh;border-radius:12px;object-fit:contain;}
+  #lightbox-close{position:absolute;top:20px;right:28px;color:#fff;font-size:32px;cursor:pointer;line-height:1;background:none;border:none;}
+  .cs-shoot{margin-top:40px;padding-top:36px;border-top:1px solid var(--line);}
+  .cs-shoot h4{font-family:"Space Grotesk";font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px;}
+  .cs-shoot p{font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.6;}
+  .cs-masonry{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;grid-auto-flow:dense;}
+  .cs-masonry img{width:100%;display:block;border-radius:8px;object-fit:cover;}
+  .cs-masonry img.landscape{grid-column:span 2;aspect-ratio:4/3;}
+  .cs-masonry img.portrait{grid-column:span 1;aspect-ratio:2/3;}
+  @media(max-width:640px){.cs-masonry{grid-template-columns:repeat(2,1fr);}.cs-masonry img.landscape{grid-column:span 2;}}
+  .cs-links{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;}
+  .cs-link{display:inline-block;font-size:13px;font-weight:600;color:var(--accent);border:1px solid var(--accent);padding:9px 20px;border-radius:100px;text-decoration:none;transition:.15s;}
+  .cs-link:hover{background:var(--accent);color:var(--btn-text);}
+  .view-case{display:inline-block;margin-top:20px;font-size:13px;font-weight:600;color:rgba(255,255,255,.6);background:none;border:1px solid rgba(255,255,255,.2);padding:9px 20px;border-radius:100px;cursor:pointer;font-family:"Inter",sans-serif;transition:.15s;text-decoration:none;}
+  .view-case:hover{color:#fff;border-color:rgba(255,255,255,.5);}
+  .eg-work-inner{background:var(--accent);border-radius:22px;padding:36px 40px;text-align:center;margin-top:24px}
+  .eg-work-inner .sub-kicker{color:rgba(255,255,255,.5);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:10px;display:block}
+  .eg-work-inner .kicker{color:#fff;font-size:28px;font-family:"Space Grotesk";font-weight:700;letter-spacing:-.02em;text-transform:none;margin-bottom:8px}
+  .eg-work-inner p{color:rgba(255,255,255,.7);font-size:14px;margin-bottom:24px}
+  .eg-work-links{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .eg-link{display:inline-flex;flex-direction:column;gap:3px;text-decoration:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:16px 28px;transition:.2s;text-align:left}
+  .eg-link:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.4);transform:translateY(-2px)}
+  .eg-link-label{font-size:11px;font-weight:600;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.08em}
+  .eg-link-name{font-size:15px;font-weight:700;color:#fff}
+  .eg-link-meta{font-size:12px;color:rgba(255,255,255,.5)}
+  @media(max-width:640px){.cs-body{padding:24px 20px 32px;}.cs-grid{grid-template-columns:1fr;}.cs-gallery{grid-template-columns:1fr 1fr;}}
+
+  /* Dark magazine card */
+  .card-dark{background:var(--accent);border-color:var(--accent);}
+  .card-dark .tag{color:rgba(255,255,255,.55);}
+  .card-dark h3{color:#fff;}
+  .card-dark p{color:rgba(255,255,255,.65);}
+  .card-dark .role li{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.8);}
+  .card-dark .mag-covers-row{background:rgba(0,0,0,.2);}
+  .card-dark .mag-cover-frame{background:rgba(0,0,0,.25);}
+  .card-dark .mag-cover-lbl{color:rgba(255,255,255,.5);}
+  [data-theme="dark"] .card-dark{background:#3d0820;border-color:#3d0820;}
+
+  /* Magazine cover thumbnails */
+  .card-media-height{height:360px;}
+  .mag-covers-row{display:flex;gap:12px;background:var(--ph-bg);padding:22px 18px 14px;height:360px;}
+  .mag-cover-btn{flex:1;cursor:pointer;position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .mag-cover-frame{width:100%;aspect-ratio:.71;position:relative;border-radius:3px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.22);background:var(--line);}
+  .mag-cover-canvas{position:absolute;top:0;left:0;width:100%;height:100%;display:block;border-radius:3px;object-fit:contain;}
+  .mag-cover-hover{position:absolute;inset:0;background:rgba(79,12,40,.62);border-radius:3px;display:flex;align-items:center;justify-content:center;opacity:0;transition:.2s;color:#fff;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;}
+  [data-theme="dark"] .mag-cover-hover{background:rgba(197,210,248,.22);color:var(--accent);}
+  .mag-cover-btn:hover .mag-cover-hover{opacity:1;}
+  .mag-cover-lbl{font-size:11px;color:var(--muted);font-weight:500;letter-spacing:.08em;text-transform:uppercase;}
+
+  /* Flipbook overlay */
+  #fb-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(10,3,7,.95);flex-direction:column;align-items:center;justify-content:center;}
+  #fb-overlay.open{display:flex;}
+  #fb-close{position:absolute;top:20px;right:24px;background:none;border:none;color:rgba(255,255,255,.55);font-size:34px;line-height:1;cursor:pointer;padding:4px 10px;transition:.15s;}
+  #fb-close:hover{color:#fff;}
+  #fb-title{color:rgba(255,255,255,.4);font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;font-family:"Inter",sans-serif;}
+  #fb-loading{color:rgba(255,255,255,.55);font-size:14px;font-family:"Inter",sans-serif;letter-spacing:.04em;}
+  #fb-book{display:block;}
+  .fb-nav{display:flex;align-items:center;gap:14px;margin-top:16px;}
+  .fb-nav button{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.85);padding:7px 20px;border-radius:100px;cursor:pointer;font-family:"Inter",sans-serif;font-size:13px;transition:.15s;}
+  .fb-nav button:hover{background:rgba(255,255,255,.15);}
+  #fb-page{color:rgba(255,255,255,.4);font-size:12px;min-width:80px;text-align:center;font-family:"Inter",sans-serif;}
+
+  @media(max-width:760px){
+    .navlinks{display:none}
+    .impact .stats{grid-template-columns:1fr 1fr}
+    .cases,.quotes{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <div class="logo">LUCY <span>ROYLE</span></div>
+  <div class="nav-right">
+    <div class="navlinks"><a href="#impact">Impact</a><a href="#work">Work</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></div>
+  </div>
+</nav></div></header>
+
+<section class="hero"><div class="glow"></div><div class="wrap">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Hi, I'm <span>Lucy.</span></h1>
+      <div class="about-bio">
+        <p>From Marketing Assistant to leading a department, I've spent 10 years figuring out what makes people connect with a brand, and building the campaigns that get them there.</p>
+        <p>I've worked across weddings, food, and sports — adapting quickly to different audiences, tones, and business models. Most recently I spent 20 months in the Canadian Rockies leading marketing for Valbella Gourmet Foods.</p>
+        <p>Now based in Wrexham and looking for a senior role. I love marketing — the full journey from idea to impact, watching a strategy evolve and seeing the numbers respond.</p>
+        <div class="trophy-badge"><i class="ti ti-trophy" aria-hidden="true"></i> Valbella Kindness Champion 2025</div>
+      </div>
+      <div class="hero-btns"><a class="btn" href="#work">See the work</a><a class="btn ghost" href="#contact">Get in touch</a><a class="btn ghost" href="https://canva.link/zt1l9n9g5l04urv" target="_blank" rel="noopener">View CV</a></div>
+    </div>
+    <div class="hero-image-wrap">
+      <img class="hero-photo" src="images/IMG_6362.jpeg" alt="Lucy Royle" onerror="this.style.background='var(--ph-bg)';this.removeAttribute('src')">
+      <div class="hero-location"><i class="ti ti-map-pin"></i> Whistler's Peak, Jasper, AB</div>
+      <div class="hero-badge"><span>10+</span>years in marketing</div>
+    </div>
+  </div>
+</div></section>
+
+<div class="marquee"><div class="marquee-track"><span><b>64%</b> sales growth</span><span>·</span><span><b>152%</b> email conversion</span><span>·</span><span><b>1m+</b> social views</span><span>·</span><span><b>#1</b> Best Social Media</span><span>·</span><span><b>136%</b> loyal customer growth</span><span>·</span><span><b>35%</b> conversion rate</span><span>·</span><span><b>64%</b> sales growth</span><span>·</span><span><b>152%</b> email conversion</span><span>·</span><span><b>1m+</b> social views</span><span>·</span><span><b>#1</b> Best Social Media</span><span>·</span><span><b>136%</b> loyal customer growth</span><span>·</span><span><b>35%</b> conversion rate</span><span>·</span></div></div>
+
+<section class="section impact" id="impact"><div class="wrap">
+  <div class="sec-head"><div class="kicker">Selected results</div><h2>Impact, in numbers.</h2></div>
+  <div class="stats">
+    <div class="stat"><div class="num">64%</div><div class="lbl">Online sales growth</div></div>
+    <div class="stat"><div class="num">152%</div><div class="lbl">Email conversion growth</div></div>
+    <div class="stat"><div class="num">1m+</div><div class="lbl">Social media views</div></div>
+    <div class="stat"><div class="num">136%</div><div class="lbl">Loyal customer growth</div></div>
+    <div class="stat"><div class="num">35%</div><div class="lbl">Website conversion rate</div></div>
+    <div class="stat"><div class="num">#1</div><div class="lbl">Readers' Choice: Best Social Media</div></div>
+    <div class="stat"><div class="num">16.3%</div><div class="lbl">Social campaign engagement rate</div></div>
+    <div class="stat"><div class="num">8%</div><div class="lbl">Conversion rate, Becoming Brookfield launch</div></div>
+  </div>
+</div></section>
+<section class="section" id="work"><div class="wrap">
+  <div class="sec-head"><div class="kicker">Case studies</div><h2>Selected work.</h2></div>
+  <div class="cases">
+    <div class="card card-dark">
+      <div class="mag-covers-row">
+        <a class="mag-cover-btn" href="https://canva.link/gt648wbrm93uhba" target="_blank" rel="noopener">
+          <div class="mag-cover-frame">
+            <img src="images/Summer-cover.jpg" alt="Summer magazine cover" class="mag-cover-canvas">
+            <div class="mag-cover-hover">Read magazine</div>
+          </div>
+          <div class="mag-cover-lbl">Summer</div>
+        </a>
+        <a class="mag-cover-btn" href="https://canva.link/q8m8ws73dt06hmk" target="_blank" rel="noopener">
+          <div class="mag-cover-frame">
+            <img src="images/Christmas-cover.jpg" alt="Christmas magazine cover" class="mag-cover-canvas">
+            <div class="mag-cover-hover">Read magazine</div>
+          </div>
+          <div class="mag-cover-lbl">Christmas</div>
+        </a>
+      </div>
+      <div class="body">
+      <div class="tag">Valbella Gourmet Foods</div>
+      <h3>Reviving the seasonal magazine</h3>
+      <p>Concept to print, solo. Two seasonal editions, a professional BBQ photoshoot, and a Christmas issue that converted 10% of QR code scans to purchase.</p>
+      <ul class="role"><li>Creative Direction</li><li>Copywriting</li><li>Layout</li><li>Photoshoot</li></ul>
+      <button class="view-case" data-case="magazine">View case study →</button>
+    </div></div>
+    <div class="card card-dark"><div class="ph card-media-height" style="padding:0;overflow:hidden;"><img src="images/Studio67.png" alt="Studio 67" style="width:100%;height:100%;object-fit:cover;display:block;"></div><div class="body">
+      <div class="tag">Studio 67</div>
+      <h3>Launching a family business</h3>
+      <p>Brand, website and launch from scratch, including a community campaign that hit 16.3% engagement, over 18x the industry average.</p>
+      <ul class="role"><li>Branding</li><li>Web</li><li>AI-assisted Build</li><li>PR</li></ul>
+      <button class="view-case" data-case="studio67">View case study →</button>
+    </div></div>
+  </div>
+  <div class="eg-work-inner">
+    <div class="eg-work-text">
+      <span class="sub-kicker">Social Media</span>
+      <div class="kicker">Work and Management Examples</div>
+      <p>See the accounts I built and managed across both roles.</p>
+    </div>
+    <div class="eg-work-links">
+      <a class="eg-link" href="https://www.instagram.com/valbellagourmetfoods" target="_blank" rel="noopener">
+        <span class="eg-link-label">Instagram</span>
+        <span class="eg-link-name">Valbella Gourmet Foods</span>
+        <span class="eg-link-meta">Dec 2024 – June 2026</span>
+      </a>
+      <a class="eg-link" href="https://www.instagram.com/studio67shrewsbury/?hl=en" target="_blank" rel="noopener">
+        <span class="eg-link-label">Instagram</span>
+        <span class="eg-link-name">Studio 67 Shrewsbury</span>
+        <span class="eg-link-meta">Ongoing</span>
+      </a>
+    </div>
+  </div>
+</div></section>
+
+<section class="section" id="reviews"><div class="wrap">
+  <div class="sec-head"><div class="kicker">Beyond the job title</div><h2>What people say.</h2></div>
+  <div class="quotes">
+    <div class="quote">
+      <div class="mark">"</div>
+      <p>Some people fulfil a role; others transform it. Lucy is the latter.</p>
+      <div class="quote-full">Over the past two years at Valbella, she has consistently brought forward thoughtful and creative ideas that strengthened our marketing efforts while taking remarkable ownership of her role. Rather than waiting for direction, she proactively identifies opportunities, improves processes, embraces technology, and continually finds ways to elevate the work around her. She works exceptionally well with others and has become the type of team member every organisation hopes to find.</div>
+      <button class="quote-toggle">Read full testimonial ↓</button>
+      <div class="who">Lisa Shelley</div><div class="role2">Valbella Gourmet Foods</div>
+    </div>
+    <div class="quote">
+      <div class="mark">"</div>
+      <p>Every few years, you have a team member that you know you will never forget. Lucy is one of those people.</p>
+      <div class="quote-full">With a smile on her face and pep in her step, she takes on any task that is put forth and does it with ease, grace and professionalism that is unparalleled. Her creativity and ability to come up with new content, keep up with the newest technologies and continuously be a team member that everyone wants to work with are just a few of her greatest strengths. Any company would be lucky to have her. She is an asset in every way.</div>
+      <button class="quote-toggle">Read full testimonial ↓</button>
+      <div class="who">Chantal von Rotz</div><div class="role2">Owner, Valbella Gourmet Foods</div>
+    </div>
+    <div class="quote">
+      <div class="mark">"</div>
+      <p>If I had the opportunity to hire Lucy again, I'd do so in a heartbeat.</p>
+      <div class="quote-full">She is both a credit and a significant asset to any team. Hardworking, visionary, and adaptable, Lucy pours her full energy into every project. She balances logical thinking with effective planning, yet remains agile enough to test and iterate to drive the best possible results, both for her own work and the team's collective goals.</div>
+      <button class="quote-toggle">Read full testimonial ↓</button>
+      <div class="who">Bethany Wright</div><div class="role2">Artemis Venue Services</div>
+    </div>
+  </div>
+</div></section>
+<section class="section contact" id="contact"><div class="wrap">
+  <h2>Let's work<br><span>together.</span></h2>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:lucyroyle95@hotmail.co.uk"><span class="contact-icon"><i class="ti ti-mail"></i></span>lucyroyle95@hotmail.co.uk</a>
+    <a class="contact-link" href="tel:07808862478"><span class="contact-icon"><i class="ti ti-phone"></i></span>07808 862478</a>
+    <a class="contact-link" href="https://www.linkedin.com/in/lucy-r-786195134/" target="_blank" rel="noopener"><span class="contact-icon"><i class="ti ti-brand-linkedin"></i></span>LinkedIn</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between">
+  <span>© 2026 Lucy Royle</span><span>Lucy Royle, Portfolio (in progress)</span>
+</div></footer>
+<div id="lightbox"><button id="lightbox-close">✕</button><img id="lightbox-img" src="" alt=""></div>
+<script>
+(function(){
+  var lb=document.getElementById('lightbox');
+  var lbImg=document.getElementById('lightbox-img');
+  document.getElementById('lightbox-close').addEventListener('click',function(){lb.classList.remove('open');});
+  lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open');});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('open');});
+  document.addEventListener('click',function(e){
+    if(e.target.matches('.cs-gallery img')){
+      lbImg.src=e.target.src;
+      lb.classList.add('open');
+    }
+  });
+})();
+</script>
+
+<div id="cs-overlay">
+  <button id="cs-close" aria-label="Close case study">×</button>
+  <div id="cs-panel">
+    <div class="cs-hero" id="cs-hero">Hero image placeholder</div>
+    <div class="cs-body">
+      <div class="cs-tag" id="cs-tag"></div>
+      <h2 class="cs-title" id="cs-title"></h2>
+      <p class="cs-intro" id="cs-intro"></p>
+      <div class="cs-grid" id="cs-grid"></div>
+      <div class="cs-gallery" id="cs-gallery"></div>
+      <div class="cs-links" id="cs-links"></div>
+    </div>
+  </div>
+</div>
+
+<div id="case-magazine" hidden>
+  <meta data-tag="Valbella Gourmet Foods">
+  <meta data-title="Reviving the seasonal magazine">
+  <meta data-intro="What started as a Christmas magazine grew into a seasonal series. BBQ season is Valbella's busiest period and we wanted to capitalise on that. 6,000 copies printed and distributed across two editions, contributing to a record-breaking Christmas that surpassed the previous year's orders.">
+  <div data-section="The challenge" data-full="true">Valbella needed a way to connect with their existing audience and convert them ahead of key trading periods. With a small delivery radius and provincial licensing limiting them to Alberta, reaching the customers they already had was everything. The idea started as a Christmas magazine to drive pre-orders, but BBQ season is Valbella's busiest period and we wanted to capitalise on that too. The magazine grew into a seasonal series, telling the brand's story, showcasing products in context, and giving customers a reason to buy.</div>
+  <div data-section="My role">Creative Direction · Content Planning · Copywriting & Editing · Interviews · Graphic Design & Layout · Photoshoot Coordination · Project Management</div>
+  <div data-section="What I did" data-full="true">I built the magazine entirely from scratch, developing the concept, planning the content calendar, conducting interviews with the team, writing and editing all copy, and designing the layout through to print-ready files. 6,000 copies were printed and distributed across two editions. For the summer edition I also organised and coordinated a professional BBQ photoshoot, creating original imagery used throughout the magazine and across wider marketing campaigns.</div>
+  <div data-section="The result" data-full="true">Valbella had a record-breaking Christmas, surpassing the previous year's orders. The Christmas edition, tracked via UTM-tagged QR codes embedded in the print, showed a 10% conversion rate from scan to purchase, a strong return for a print piece. Customer feedback was brilliant throughout. The summer edition was released as I finished my time at Valbella, with the original photography continuing to be used across wider marketing campaigns.</div>
+  <meta data-hero="images/magazine-hero.jpg">
+  <div data-shoot="images/bbq-0352-web.jpeg|images/bbq-0672-web.jpeg|images/bbq-0682-web.jpeg|images/bbq-0679-web.jpeg|images/bbq-0376-web.jpeg|images/bbq-0448-web.jpeg|images/bbq-0228-web.jpeg|images/bbq-0599-web.jpeg|images/bbq-0131-web.jpg"></div>
+  <div data-links="Read the summer issue:https://example.com|Read the christmas issue:https://example.com"></div>
+</div>
+
+<div id="case-studio67" hidden>
+  <meta data-tag="Studio 67">
+  <meta data-title="Launching a family business">
+  <meta data-hero="images/Studio67.png">
+  <meta data-intro="A licensed art gallery: pop art by day, absinthe by night. I built Studio 67's brand and online presence from scratch, ran a community campaign that hit 16.3% engagement (18x the industry average), and later led a full website redesign from Canada.">
+  <div data-section="The challenge" data-full="true">Studio 67 is a licensed art gallery offering pop art by day and absinthe by night, and was starting from scratch. Before opening, they needed a brand identity, website, social presence, and a launch strategy that would connect them with their local community and build awareness from the ground up.</div>
+  <div data-section="My role">Branding · Website Development · Content Creation · Launch Strategy · Social Media · Campaign Management · PR Agency Coordination · AI-assisted Redesign · Remote Project Management</div>
+  <div data-section="What I did" data-full="true">I built the marketing foundations for the launch: branding, website, social presence, content, and launch strategy. To build community awareness I initiated and ran Studio 67's Independent Business campaign: the owner painted five local independent businesses, gifting one painting each month. I posted each reveal to Studio 67's social channels using Instagram's collaboration feature to expand reach and grow the audience. I also attended networking events and initiated giveaways to boost awareness. I initiated the relationship with a PR agency, and later led a full website redesign while managing the project remotely from Canada, using AI-assisted development to improve the customer experience and explore emerging tools in a real business environment.</div>
+  <div data-section="The result" data-full="true">The Independent Business campaign achieved an average post engagement rate of 16.3%, surpassing the industry average of 0.87% by over 18 times. The campaign created a buzz within the community and caught the eye of a local magazine. The PR relationship I initiated helped gather content for the redesign, and the website is currently in the final stages of sign off and will be going live shortly.</div>
+  <div data-gallery="img:images/New Preview 1.png|img:images/New Preview 2.png|img:images/New Preview 3.png" data-gallery-title="Website preview"></div>
+</div>
+
+<div id="fb-overlay" role="dialog" aria-modal="true" aria-label="Magazine viewer">
+  <button id="fb-close" aria-label="Close magazine">×</button>
+  <div id="fb-title"></div>
+  <div id="fb-loading">Loading magazine…</div>
+  <div id="fb-book"></div>
+  <div class="fb-nav">
+    <button id="fb-prev">← Prev</button>
+    <span id="fb-page"></span>
+    <button id="fb-next">Next →</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script>
+(function(){
+  var MAGS={
+    summer:{file:'Summer Magazine.pdf',label:'Summer Issue, Valbella Gourmet Foods'},
+    christmas:{file:'Christmas Magazine.pdf',label:'Christmas Issue, Valbella Gourmet Foods'}
+  };
+
+  var flipInst=null;
+
+  function renderPage(pdf,num,canvas,scale){
+    return pdf.getPage(num).then(function(page){
+      var vp=page.getViewport({scale:scale});
+      canvas.width=vp.width; canvas.height=vp.height;
+      return page.render({canvasContext:canvas.getContext('2d'),viewport:vp}).promise;
+    });
+  }
+
+function updateNav(){
+    if(!flipInst) return;
+    var cur=flipInst.getCurrentPageIndex()+1;
+    var tot=flipInst.getPageCount();
+    document.getElementById('fb-page').textContent='Page '+cur+' of '+tot;
+  }
+
+  function openFlipbook(key){
+    if(typeof pdfjsLib==='undefined'){
+      alert('Magazine viewer failed to load. Please refresh and try again.');
+      return;
+    }
+    pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    var mag=MAGS[key];
+    var overlay=document.getElementById('fb-overlay');
+    var loading=document.getElementById('fb-loading');
+    var bookEl=document.getElementById('fb-book');
+
+    document.getElementById('fb-title').textContent=mag.label;
+    loading.style.display='block';
+    bookEl.style.visibility='hidden';
+    overlay.classList.add('open');
+    document.body.style.overflow='hidden';
+
+    if(flipInst){try{flipInst.destroy();}catch(e){} flipInst=null;}
+    bookEl.innerHTML='';
+
+    pdfjsLib.getDocument(mag.file).promise.then(function(pdf){
+      var numPages=pdf.numPages;
+      return pdf.getPage(1).then(function(firstPage){
+        var nativeVp=firstPage.getViewport({scale:1});
+        var ratio=nativeVp.height/nativeVp.width;
+        var maxW=Math.min(Math.floor((window.innerWidth-80)*0.44),420);
+        var pageW=maxW;
+        var pageH=Math.round(pageW*ratio);
+        var scale=pageW/nativeVp.width;
+
+        var promises=[];
+        for(var i=1;i<=numPages;i++){
+          (function(n){
+            var c=document.createElement('canvas');
+            promises.push(renderPage(pdf,n,c,scale).then(function(){return c.toDataURL('image/jpeg',0.9);}));
+          })(i);
+        }
+        return Promise.all(promises).then(function(images){
+          loading.style.display='none';
+          bookEl.style.visibility='visible';
+          flipInst=new St.PageFlip(bookEl,{
+            width:pageW, height:pageH,
+            size:'fixed',
+            showCover:true,
+            usePortrait:false,
+            flippingTime:650,
+            useMouseEvents:true,
+            swipeDistance:30
+          });
+          flipInst.loadFromImages(images);
+          flipInst.on('flip',updateNav);
+          updateNav();
+        });
+      });
+    }).catch(function(e){
+      loading.textContent='Could not load magazine. Please try again.';
+      console.error(e);
+    });
+  }
+
+  function closeFlipbook(){
+    document.getElementById('fb-overlay').classList.remove('open');
+    document.body.style.overflow='';
+    if(flipInst){try{flipInst.destroy();}catch(e){} flipInst=null;}
+    document.getElementById('fb-loading').style.display='none';
+    document.getElementById('fb-book').innerHTML='';
+  }
+
+  document.getElementById('open-summer').addEventListener('click',function(){openFlipbook('summer');});
+  document.getElementById('open-christmas').addEventListener('click',function(){openFlipbook('christmas');});
+  document.getElementById('fb-close').addEventListener('click',closeFlipbook);
+  document.getElementById('fb-overlay').addEventListener('click',function(e){if(e.target===this)closeFlipbook();});
+  document.getElementById('fb-prev').addEventListener('click',function(){if(flipInst)flipInst.flipPrev();});
+  document.getElementById('fb-next').addEventListener('click',function(){if(flipInst)flipInst.flipNext();});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape')closeFlipbook();
+    if(e.key==='ArrowRight'&&flipInst)flipInst.flipNext();
+    if(e.key==='ArrowLeft'&&flipInst)flipInst.flipPrev();
+  });
+
+})();
+</script>
+
+<script>
+(function(){
+  var overlay=document.getElementById('cs-overlay');
+
+  function openCase(id){
+    var src=document.getElementById('case-'+id);
+    if(!src) return;
+
+    document.getElementById('cs-tag').textContent=src.querySelector('[data-tag]').getAttribute('data-tag');
+    document.getElementById('cs-title').textContent=src.querySelector('[data-title]').getAttribute('data-title');
+    document.getElementById('cs-intro').textContent=src.querySelector('[data-intro]').getAttribute('data-intro');
+
+    var grid=document.getElementById('cs-grid');
+    grid.innerHTML='';
+    src.querySelectorAll('[data-section]').forEach(function(el){
+      var div=document.createElement('div');
+      div.className='cs-section'+(el.hasAttribute('data-full')?' full':'');
+      div.innerHTML='<h4>'+el.getAttribute('data-section')+'</h4><p>'+el.textContent.trim()+'</p>';
+      grid.appendChild(div);
+    });
+
+    var heroEl=document.getElementById('cs-hero');
+    var heroMeta=src.querySelector('[data-hero]');
+    if(heroMeta){
+      heroEl.innerHTML='<img src="'+heroMeta.getAttribute('data-hero')+'" alt="">';
+    } else {
+      heroEl.innerHTML='Hero image placeholder';
+    }
+
+    var gallery=document.getElementById('cs-gallery');
+    gallery.innerHTML='';
+    gallery.style.display='none';
+    var gEl=src.querySelector('[data-gallery]');
+    if(gEl){
+      gallery.style.display='';
+      var galleryTitle=gEl.getAttribute('data-gallery-title');
+      if(galleryTitle){
+        var h4=document.createElement('h4');
+        h4.style.cssText='font-family:"Space Grotesk";font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px;grid-column:1/-1;';
+        h4.textContent=galleryTitle;
+        gallery.appendChild(h4);
+      }
+      gEl.getAttribute('data-gallery').split('|').forEach(function(item){
+        if(item.indexOf('img:')===0){
+          var img=document.createElement('img');
+          img.src=item.slice(4);
+          img.alt='';
+          gallery.appendChild(img);
+        } else {
+          var ph=document.createElement('div');
+          ph.className='ph';
+          ph.textContent=item;
+          gallery.appendChild(ph);
+        }
+      });
+    }
+
+    var shootEl=src.querySelector('[data-shoot]');
+    var existingShoot=document.getElementById('cs-shoot');
+    if(existingShoot) existingShoot.remove();
+    if(shootEl){
+      var shootDiv=document.createElement('div');
+      shootDiv.id='cs-shoot';
+      shootDiv.className='cs-shoot';
+      shootDiv.innerHTML='<h4>Selected images from the photoshoot</h4><p>The brief was lifestyle rather than staged: real movement, family warmth, and the relaxed energy that defines Valbella as a brand. These are a selection from the shoot; the resulting images were used throughout the summer magazine and across wider marketing campaigns.</p><div class="cs-masonry" id="cs-masonry"></div>';
+      document.getElementById('cs-panel').querySelector('.cs-body').appendChild(shootDiv);
+      var masonry=shootDiv.querySelector('.cs-masonry');
+      shootEl.getAttribute('data-shoot').split('|').forEach(function(src){
+        var img=document.createElement('img');
+        img.alt='';
+        img.addEventListener('load',function(){
+          img.classList.add(img.naturalWidth>img.naturalHeight?'landscape':'portrait');
+        });
+        img.src=src;
+        masonry.appendChild(img);
+      });
+    }
+
+    var links=document.getElementById('cs-links');
+    links.innerHTML='';
+    var lEl=src.querySelector('[data-links]');
+    if(lEl){
+      lEl.getAttribute('data-links').split('|').forEach(function(pair){
+        var parts=pair.split(':https://');
+        var a=document.createElement('a');
+        a.className='cs-link';
+        a.textContent=parts[0]+' →';
+        a.href='https://'+parts[1];
+        a.target='_blank';
+        links.appendChild(a);
+      });
+    }
+
+    overlay.classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+
+  function closeCase(){
+    overlay.classList.remove('open');
+    document.body.style.overflow='';
+  }
+
+  document.querySelectorAll('.view-case').forEach(function(btn){
+    btn.addEventListener('click',function(){ openCase(btn.getAttribute('data-case')); });
+  });
+  document.getElementById('cs-close').addEventListener('click',closeCase);
+  overlay.addEventListener('click',function(e){ if(e.target===this) closeCase(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeCase(); });
+})();
+</script>
+
+<script>
+document.querySelectorAll('.quote-toggle').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var quote=btn.closest('.quote');
+    var willExpand=!quote.classList.contains('expanded');
+    document.querySelectorAll('.quote').forEach(function(q){
+      q.classList.remove('expanded');
+      q.querySelector('.quote-toggle').textContent='Read full testimonial ↓';
+    });
+    if(willExpand){
+      quote.classList.add('expanded');
+      btn.textContent='Read less ↑';
+    }
+  });
+});
+</script>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('themeToggle');
+    function paint(){var dark=root.getAttribute('data-theme')==='dark';btn.textContent=dark?'☀️ Light':'🌙 Dark';}
+    paint();
+    btn.addEventListener('click',function(){
+      var next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+      root.setAttribute('data-theme',next);
+      try{localStorage.setItem('lr-theme',next);}catch(e){}
+      paint();
+    });
+  })();
+</script>
+</body>
+</html>

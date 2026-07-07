@@ -1,0 +1,18 @@
+.DS_Store
+images/.DS_Store
+
+# Large original images — web versions used instead
+images/*-lg.jpeg
+images/*-lg.jpg
+
+# Old screenshots (replaced by New Preview files)
+images/Screenshot*.png
+
+# Original PNGs replaced by compressed JPEGs
+images/Christmas-cover.png
+images/Summer-cover.png
+images/magazine-hero.png
+
+# Unused BBQ originals
+images/bbq-0219-lg.jpeg
+*.pdf

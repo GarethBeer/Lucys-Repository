@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucy Royle — Option C: Warm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fff9f3; --ink:#33291f; --muted:#7a6e60; --line:#ece1d3;
+    --accent:#c9702f; --accent2:#7c8a5a; --card:#fffdfa;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+  .serif{font-family:"DM Serif Display",serif}
+
+  header{position:sticky;top:0;z-index:10;background:rgba(255,249,243,.86);backdrop-filter:blur(8px)}
+  nav{display:flex;justify-content:space-between;align-items:center;height:74px}
+  .logo{font-family:"DM Serif Display";font-size:24px}
+  .logo span{color:var(--accent)}
+  .navlinks{display:flex;gap:30px}
+  .navlinks a{color:var(--muted);text-decoration:none;font-size:15px;font-weight:500}
+  .navlinks a:hover{color:var(--accent)}
+
+  .hero{padding:80px 0 64px;display:grid;grid-template-columns:1.3fr .9fr;gap:56px;align-items:center}
+  .eyebrow{display:inline-block;background:#fbeede;color:var(--accent);font-size:13px;font-weight:600;padding:6px 14px;border-radius:100px;margin-bottom:22px}
+  .hero h1{font-family:"DM Serif Display";font-size:clamp(42px,6.5vw,72px);font-weight:400;line-height:1.05;margin-bottom:22px}
+  .hero h1 em{color:var(--accent)}
+  .hero p{font-size:19px;color:var(--muted);margin-bottom:30px}
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:15px 30px;border-radius:100px;text-decoration:none;font-weight:600;font-size:15px}
+  .btn:hover{background:#b5611f}
+  .portrait{aspect-ratio:4/5;border-radius:20px;background:linear-gradient(150deg,#f3e3d0,#e7d9c4);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#c2b29c;font-size:13px;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 30px 60px -30px rgba(120,90,50,.35)}
+
+  .impact{background:#fbf1e6;padding:60px 0}
+  .impact .lead{text-align:center;font-size:15px;color:var(--muted);margin-bottom:40px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:38px 24px}
+  .stat{text-align:center}
+  .stat .num{font-family:"DM Serif Display";font-size:52px;color:var(--accent);line-height:1}
+  .stat:nth-child(even) .num{color:var(--accent2)}
+  .stat .lbl{color:var(--muted);font-size:14px;margin-top:8px}
+
+  .section{padding:88px 0}
+  .sec-head{text-align:center;margin-bottom:52px}
+  .sec-head .kicker{color:var(--accent);font-size:14px;font-weight:600;letter-spacing:.04em;margin-bottom:10px}
+  .sec-head h2{font-family:"DM Serif Display";font-size:clamp(32px,4.5vw,48px);font-weight:400}
+
+  .case{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-bottom:64px}
+  .case:nth-child(odd) .ph{order:-1}
+  .ph{aspect-ratio:4/3;border-radius:18px;background:linear-gradient(135deg,#f0e2cf,#e6d6bf);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#c2b29c;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  .case .tag{color:var(--accent);font-weight:600;font-size:14px;margin-bottom:10px}
+  .case h3{font-family:"DM Serif Display";font-size:28px;font-weight:400;margin-bottom:12px}
+  .case p{color:var(--muted);margin-bottom:18px}
+  .role{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .role li{font-size:12.5px;background:#fbeede;color:var(--accent);padding:5px 12px;border-radius:100px}
+
+  .reviews{background:#f4efe4}
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .quote{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;box-shadow:0 18px 40px -28px rgba(120,90,50,.3)}
+  .quote p{font-family:"DM Serif Display";font-style:italic;font-size:18px;line-height:1.5;margin-bottom:20px}
+  .quote .who{font-weight:600;font-size:14px}
+  .quote .role2{color:var(--muted);font-size:13px}
+
+  .contact{text-align:center;padding:100px 0}
+  .contact h2{font-family:"DM Serif Display";font-size:clamp(34px,5vw,58px);font-weight:400;margin-bottom:22px}
+  .contact h2 em{color:var(--accent)}
+  footer{padding:32px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+
+  @media(max-width:760px){
+    .navlinks{display:none}
+    .hero{grid-template-columns:1fr}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .case,.case:nth-child(odd) .ph{grid-template-columns:1fr;order:0}
+    .quotes{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <div class="logo">Lucy <span>Royle</span></div>
+  <div class="navlinks"><a href="#impact">Impact</a><a href="#work">Work</a><a href="#about">About</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a></div>
+</nav></div></header>
+
+<section class="wrap hero">
+  <div>
+    <span class="eyebrow">✦ Award-winning Marketing Manager</span>
+    <h1>Marketing with <em>heart</em>, measured in results.</h1>
+    <p>For 10+ years I've helped brands across health &amp; fitness, weddings and gourmet food connect with the people who love them — most recently for Valbella Gourmet Foods in the Canadian Rockies.</p>
+    <a class="btn" href="#work">Explore my work</a>
+  </div>
+  <div class="portrait">Portrait of Lucy</div>
+</section>
+
+<section class="impact" id="impact"><div class="wrap">
+  <div class="lead">A few highlights from my time at <strong>Valbella Gourmet Foods</strong></div>
+  <div class="stats">
+    <div class="stat"><div class="num">64%</div><div class="lbl">Online sales growth</div></div>
+    <div class="stat"><div class="num">152%</div><div class="lbl">Email conversion growth</div></div>
+    <div class="stat"><div class="num">1m+</div><div class="lbl">Social media views</div></div>
+    <div class="stat"><div class="num">136%</div><div class="lbl">Loyal customer growth</div></div>
+    <div class="stat"><div class="num">35%</div><div class="lbl">Website conversion rate</div></div>
+    <div class="stat"><div class="num">#1</div><div class="lbl">Readers' Choice — Best Social Media</div></div>
+  </div>
+</div></section>
+
+<section class="section" id="work"><div class="wrap">
+  <div class="sec-head"><div class="kicker">Selected work</div><h2>Projects I'm proud of</h2></div>
+
+  <div class="case">
+    <div class="ph">Magazine spread</div>
+    <div>
+      <div class="tag">Valbella Gourmet Foods</div>
+      <h3>Reviving the seasonal magazine</h3>
+      <p>One of my favourite projects — bringing a dormant magazine back to life from concept to print, with seasonal recipes, brand stories and a professional BBQ photoshoot I organised for the summer edition.</p>
+      <ul class="role"><li>Creative Direction</li><li>Copywriting</li><li>Interviews</li><li>Layout</li><li>Photoshoot</li></ul>
+    </div>
+  </div>
+
+  <div class="case">
+    <div class="ph">Studio 67 website</div>
+    <div>
+      <div class="tag">Studio 67</div>
+      <h3>Launching a family-run business</h3>
+      <p>I built the marketing foundations for a brand-new business — branding, website, content and launch strategy — then led a redesign using AI-assisted development, all managed remotely from Canada.</p>
+      <ul class="role"><li>Branding</li><li>Web</li><li>Content Strategy</li><li>AI-assisted Build</li></ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="reviews" id="reviews"><div class="wrap section">
+  <div class="sec-head"><div class="kicker">Beyond the job title</div><h2>What it's like to work with me</h2></div>
+  <div class="quotes">
+    <div class="quote"><p>"Some people fulfil a role; others transform it. Lucy is the latter."</p><div class="who">Lisa Shelley</div><div class="role2">Valbella Gourmet Foods</div></div>
+    <div class="quote"><p>"With a smile on her face and pep in her step… an asset in every way."</p><div class="who">Chantal von Rotz</div><div class="role2">Owner, Valbella Gourmet Foods</div></div>
+    <div class="quote"><p>"If I had the opportunity to hire Lucy again, I would do so in a heartbeat."</p><div class="who">Bethany Wright</div><div class="role2">Artemis Venue Services</div></div>
+  </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <h2>I'd love to <em>hear from you</em></h2>
+  <a class="btn" href="mailto:hello@example.com">Say hello</a>
+</div></section>
+
+<footer><div class="wrap" style="display:flex;justify-content:space-between">
+  <span>© 2026 Lucy Royle</span><span>Option C — Warm &amp; Personal</span>
+</div></footer>
+</body>
+</html>
